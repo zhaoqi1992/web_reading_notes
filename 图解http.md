@@ -400,10 +400,98 @@
 		* Accept-Ranges：bytes 表示接受
 		* Accept-Ranges：none 表示不接受
 	* Age
+		* 如果是服务器的响应，表示源服务器多久前创建了响应
+		* 如果是缓存服务器的响应，表示缓存已经验证过，现在过的多长时间（缓存后的响应再次发起认证到认证完成的时间）
+		* 代理创建响应时，必须加上Age首部
 	* ETag
+		* 服务器上的每个资源都有对应的ETag，类似于ID
+		* 只要资源更新，ETag也随之更新
+		* 同一个URI对应的资源可能有不同的ETag
+		* 分类
+			* 强ETag，只要资源稍有变化，就更新
+			* 弱ETag了，除非重大变化，不更新，开头用W/表示（If-Match情况下只能强ETag）
 	* Location
+		* 把接收方引导到另一个位置（让客户端把请求发往另一个地方）
+		* 重定向
 	* Proxy-Authenticate
+		* 代理服务器把需要的认证信息发给客户端
+		* 与Proxy-Authorization对应
 	* Retry-After
+		* 告诉客户端多长时间后再来访问
 	* Server
+		* 告诉客户端服务器的HTTP信息
 	* Vary
+		* 服务器发给代理vary：首部 ：字段值
+		* 如果代理收到的请求带有vary中指定的首部，且首部的字段值相同，则可以从缓存中返回请求的资源，否则必须从源服务器请求资源
 	* WWW-Authenticate
+		* 服务器告诉客户端认证需要哪些信息
+		* 和Authorization对应
+
+* 实体首部
+	* Allow
+		* 告诉客户端，对于所请求资源的可以使用的方法
+	* Content-Encoding
+		* 告诉客户端实体内容的编码方式
+	* Content-Language
+		* 告诉客户端实体内容使用的的自然语言
+	* Content-Length
+		* 告诉客户端实体内容的大小
+		* 编码传输的时候不能使用该首部
+	* Content-Location
+		* 告诉客户端报文主体返回资源的URI
+	* Content-MD5
+		* 用于验证报文传输的完整性
+		* 客户端对接收的报文进行MD5算法，之后用Based64对算法结果进行处理，然后和响应中Content-MD5的值进行比较
+	* Conyent-Range
+		* 针对范围请求，告知客户端返回实体中哪个部分符合范围请求
+		* Conyent-Range：bytes 5001-10000/10000
+			* bytes为单位
+			* 10000表示整个实体大小
+	* Content-Type
+		* 告诉客户端实体内容的媒体类型
+	* Expires
+		* 告诉客户端资源的失效日期
+	* Last-Modified
+		* 告诉客户端资源最近一次修改的时间
+
+* cookie首部
+	* Set-Cookie
+		* expires
+			* 指定浏览器可以发送cookie的有效期（cookie的有效期）
+			* 如果没有指定，当浏览器关闭的时候cookie失效
+			* cookie发送到客户端后，服务器只能通过设置有效期来对cookie进行删除
+		* path
+			* 限制指定cookie的发送范围的文件目录
+		* domain
+			* 可以让多个域名发送cookie
+			* domain：example.com
+				* www.example.com   www2.example.com都可以发送cookie
+		* secure
+			* 只有https才可以发送cookie
+			* 没有这个首部的时候，http和https都会回收cookie
+		* HttpOnly
+			* js脚本不能获取cookie
+	* Cookie
+		* 告诉服务器请求中包含了cookie
+
+* 其他首部
+	* X-Frame-Options
+		* 响应首部
+		* 控制页面在其他页面frame标签中的表现
+		* 字段值
+			* DENY：拒绝
+			* SAMEORIGIN：仅同源页面是许可
+	* X-XXS-Protection
+		* 响应首部
+		* 防止跨脚本攻击，启用XXS
+			* 0：关闭XXS
+			* 1：开启XXS
+	* DNT
+		* 请求首部
+		* 防止个人信息被收集
+			* 0：可以被追踪
+			* 1：禁止被追踪
+	* P3P 
+		* 响应首部
+		* 在线隐私偏好平台（P3P)
+		* 保护用户隐私
