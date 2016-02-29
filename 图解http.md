@@ -324,3 +324,86 @@
 	* Via
 		* 记录请求转发过程中都经过哪些服务器
 		* 经常和TRACE方法一起使用
+
+* 请求首部
+	* Accept
+		* 告诉服务器用户代理可以接受的媒体类型
+		* 类型
+			* 文本：text/html
+			* 图片: image/jpg
+			* 视频: video/mp4
+			* 应用程序:application/zip
+		* 优先级权重
+			* text/html;q=0.8,text/txt;q=0.2
+			* q范围0-1，精确到小数点后三位
+			* 默认q为1
+			* 服务器优先返回q最大的
+	* Accept-Charset
+		* 告诉服务器用户代理可接受的字符集
+		* 可使用优先级q
+	* Accept-Encoding
+		* 告诉服务器用户代理可接受的内容编码
+		* 可使用优先级q
+		* 可以用通配符*
+	* Accept-Language
+		* 告诉服务器用户代理可接受的自然语言
+		* 可使用优先级q
+	* Authorization
+		* 在需要认证的时候使用
+		* 接收到服务器401（需要认证信息）的响应后，把Authorization首部字段加入到请求中，向服务器发送认证信息
+		* 共用缓存在收到包含该字段的请求时的操作略有差异
+	* Expect
+		* 向服务器发送希望的扩展
+	* From
+		* 向服务器发送用户代理的邮件地址
+		* 有时也放在User-Agent里
+	* Host
+		* 告诉服务器要访问的主机名/域名
+		* 虚拟主机，相同IP不同域名
+		* 必须包含在请求首部里
+	* If-Match
+		* If-Match：字段值
+		* 服务器中的资源有自己的E-Tag值，类似于ID
+		* 只有当字段值和E-Tag值一致时才返回资源
+		* 可以使用通配符*作为字段值，这时，只要服务里有资源就返回
+		* 这种情况下不能用弱E-Tag
+	* If-Modified-Since
+		* If-Modified-Since：字段值
+		* 在字段值指定的日期后资源更新过，服务器接收请求
+	* If-None-Match
+		* 和If-Match反作用
+	* If-Range
+		* If-Range：字段值
+		* 当字段值和服务器中资源的E-Tag或者资源更新时间相同，才可执行Range请求
+		* 如果不匹配，则返回全体资源
+	* If-Unmodified-Since
+		* If-Modified-Since相反
+	* Max-Forwards
+		* TRACE
+	* Proxy-Authorization
+		* 客户端和代理之间需要认证
+		* 过程和Authorization相同，不同在于Authorization用于和服务器之间的认证
+	* Range
+		* 范围请求
+		* 不满足则返回资源的整体
+	* Referer
+		* 告诉服务器是从哪个链接过来的
+	* TE
+		* 告诉服务器客户端能处理的传输编码
+		* TE:trailers   用于分块传输
+	* User-Agent
+		* 告诉服务器浏览器和用户代理的相关信息
+
+* 响应首部
+	* Accept-Ranges
+		* 告诉客户端是否接受范围请求
+		* Accept-Ranges：bytes 表示接受
+		* Accept-Ranges：none 表示不接受
+	* Age
+	* ETag
+	* Location
+	* Proxy-Authenticate
+	* Retry-After
+	* Server
+	* Vary
+	* WWW-Authenticate
