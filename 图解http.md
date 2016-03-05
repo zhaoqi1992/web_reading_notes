@@ -293,6 +293,7 @@
 				* 他存在则忽略max-stale
 			* proxy-revalidate
 				* 所有的代理在接收到客户端的请求，在返回响应之前确认资源的有效性
+				* 一般情况下和must-revalidate返回内容相同
 				* 不可用于私人缓存
 			* no-transform
 				* 不能对资源进行压缩编码等加工，不能改变媒体类型
