@@ -1,0 +1,164 @@
+1# 主体结构
+# 1 选择器
+# 2 DOM操作
+# 3 事件和动画
+# 4 表单表格
+# 5 ajax
+## 1.选择器  
+* 基本选择器
+	* #id
+	* .class
+	* element
+	* *
+	* selector1,selector2...
+* 层次选择器
+	* $('祖先 后代')
+	* $('parent>child')
+	* $('prev+next')
+		* ('prev').next()
+	* $('prev~siblings')
+		* $('prev').nextAll()
+* 过滤选择器
+	* 基本过滤
+	 * :first
+		* :last
+		* not(selector)
+		* :even
+		* :odd
+		* eq(index)
+			* 从0开始算index
+		* :gt(index)
+		* :lt(index)
+		* :header
+		* :animated
+		* :focus
+	* 内容过滤
+		* :contains(text)
+		* :empty
+		* :has(selector)
+		* :parent
+	* 可见性过滤
+		* :hidden
+		* :visible
+	* 属性过滤
+		* [attr]
+		* [attr=value]
+		* [attr!=value]
+		* [attr^=value]
+		* [attr$=value]
+		* [attr*=value]
+		* [attr|=value]
+		* [attr~=value]
+		* [attr1][attr2][attr3]
+	* 子元素过滤
+		* :first-child
+			* 每个父元素的最后一个子元素
+		* :last-child
+			* 每个父元素的最后一个子元素
+		* :nth-child（index/even/odd)
+			* 与每一个父元素匹配
+			* :nth-child（3n+1)
+			* index从1开始算
+		* :only-child
+			* 所有父元素的唯一子元素
+	* 表单对象属性
+		* :enabled
+		* :disabled
+		* :checked
+			* 单选框复选框
+		* :selected
+			* 下拉菜单
+	
+* 表单选择器
+	* ：input
+	* :text
+	* :password
+	* :radio
+	* :checkbox
+	* :submit
+	* :image
+		* 所有的图像按钮
+	* :reset
+	* :button
+	* :file
+		* 所有的上传域
+	* :hidden
+## 2.DOM操作
+* 查找结点
+	* 用选择器查找节点
+	* attr（）得到元素属性节点
+* 创建节点
+	* 直接在$('')里面把元素，属性，文本写好
+	* 创建元素节点
+	* 创建属性节点
+	* 创建文本节点
+	* $('<li class="abc">hello</li>")
+* 插入节点
+	* append()
+	* appendTo()
+	* prepend()
+	* prependTo()
+	* after()
+	* insertAfter()
+	* before()
+	* insertBefore()
+* 删除节点
+	* remove()
+		* 可以传参选择性删除
+		* 重新追加删除的节点，原来保留绑定的事件不在
+	* detach()
+		* 重新追加删除的节点，原来保留绑定的事件还在
+	* empty()
+		* 清除节点
+* 复制节点
+	* clone()
+		* 被复制的节点不含原节点绑定的事件
+		* clone（true）包含绑定的事件
+* 替换节点
+	* replaceWith()
+	* replaceAll()
+* 包裹节点
+	* wrap()
+		* 所有匹配的元素单独包裹
+	* wrapAll()
+		* 匹配的元素用一个元素包裹
+		* 匹配元素中间的元素会被放到包裹元素后面
+	* wrapInner()
+		* 匹配元素的子内容（包括文本节点）包裹起来
+* 属性操作
+	* attr()
+	* removeAttr()
+* 样式操作
+	* 对class属性进行操作
+	* addClass()
+	* removeClass()
+	* toggleClass()
+	* hasClass()
+* 设置HTML TEXT VALUE
+	* html()
+	* text()
+	* val()
+		* defaultValue 包含表单元素的初始值
+		* val（）应用于表单，表单的value属性表示表单选中的内容；表单的selected属性，true表示选中
+* 遍历节点
+	* children()
+	* next()
+	* prev()
+	* siblings()
+	* closet()
+	* parent()
+	* parents()
+* CSS的DOM操作
+	* 用css()函数来获取或设置css
+	* css({"color":"red","backgroundColor":"blue")
+	* css('height')得到的是css中设置的值，height()表示元素在页面中实际的值；width同理
+	* offSet()
+		* 应用于position:relative的元素
+		* top，left属性为设置的top和left的值
+	* position()
+		* 应用于pisition:absolute的元素
+		* top，left属性为设置的top和left的值
+	* scrollTop()
+		* 竖直滚动条距顶端滚动距离
+	* scrollLeft()
+		* 水平滚动条距左端滚动距离
