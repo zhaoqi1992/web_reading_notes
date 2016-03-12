@@ -1,4 +1,4 @@
-1# 主体结构
+# 主体结构
 # 1 选择器
 # 2 DOM操作
 # 3 事件和动画
@@ -30,6 +30,7 @@
 		* :gt(index)
 		* :lt(index)
 		* :header
+			* h1,h2...
 		* :animated
 		* :focus
 	* 内容过滤
@@ -149,9 +150,10 @@
 	* parent()
 	* parents()
 * CSS的DOM操作
-	* 用css()函数来获取或设置css
+	* 用css()函数来获取或设置css，类似设置属性
 	* css({"color":"red","backgroundColor":"blue")
 	* css('height')得到的是css中设置的值，height()表示元素在页面中实际的值；width同理
+	* style属性不能读取外部CSS设置的样式
 	* offSet()
 		* 应用于position:relative的元素
 		* top，left属性为设置的top和left的值
@@ -162,3 +164,87 @@
 		* 竖直滚动条距顶端滚动距离
 	* scrollLeft()
 		* 水平滚动条距左端滚动距离
+
+##3 JQuery中的事件和动画
+* 事件
+	* 加载DOM
+		* $('document').ready()
+		* window.onload
+		* 差别
+			* window.onload所有的元素加载到浏览器后才能执行，redy()在DOM就绪的时候网页所有的元素就可以访问到，不过有些关联文件可能没有下载完，相关属性无法调用
+			* windown.load一次只能保存对一个函数的引用，后面的会覆盖前面的；redy()会在现有的行为上追加新的行为
+		* load()
+			* 绑定在window上，所有内容加载完后触发
+			* 绑定在元素上，元素加载完后触发
+		* $('document').ready()简写方式：$(function(){..})
+	* 事件绑定
+		* bind(type,data,fn)
+		* $("P").click(fn)
+	* 合成事件
+		* hover(fn1,fn2)
+		* toggle(fn1,fn2,...)
+	* 事件冒泡
+		* 绑定同一个事件的嵌套元素组，从最内层到最外层
+		* 阻止事件冒泡
+			* event.stopPropagation()：阻止事件冒泡
+			* event.stopDefault():阻止默认行为
+			* return false:阻止事件冒泡，阻止默认行为
+		* 事件捕获：与事件冒泡相反，JQuery不支持
+	* 事件对象属性
+		* event
+		* event.target
+		* event.relatedTarget
+		* event.pageX,event.pageY
+		* event.whcih
+		* event.metaKey
+		* 
+	* 移除事件
+		* unbind()
+		* one():处理函数触发一次后，立即被删除，用法和bind()一样
+	* 模拟操作
+		* trigger('click')
+		* trigger('click',data):传一个参数给回调函数，区分是用户行为还是模拟操作
+		* 阻止浏览器默认 行为：triggerHandler('focus')：禁止浏览器的默认focus行为
+	* 其他用法
+		* bind()的扩展用法
+		* bind('mouseover mouseout',fn)
+		* 命名空间
+			* bind('click',fn1)   bind('click.plugin',fn2)
+			* unbind('.plugin')
+			* trigger('click!'):不包含在命名空间的事件
+* 动画
+	* 说白了就是在一定的时间内改变元素的CSS
+	* 任何动画都可以设置速度参数：slow(600),normal(400),fast(200);数字：毫秒
+	* show()，hide()
+		* 设置css：display
+		* 同时改变高度，宽度，透明度
+	* fadeIn()，fadeOut()
+		* 只改变透明度
+	* slideUp()，slideDown()
+		* 只改变元素高度，达到隐藏和显示的效果
+	* animate()
+		* animate({left:"500px",height:"+=100px"},3000,fn)
+		* 用链式的方式依次执行多个动画
+		* 在animate()下，css值可以是"show","hide","toggle"
+	* 回调函数
+		* 所有的动画效果方法都可以添加回调函数，动画执行完后执行该函数
+		* 直接链式方式把css()放到最后是无效的，css()会立即执行
+		* 非动画方法会插队
+	* 停止动画
+		* stop([clearQueue],[gotoEnd])
+			* clearQueue 为true 表示停止当前动画，清空当前动画队列
+			* gotoEnd 为true，表示直接将正在执行的动画跳到末状态
+		* stop():立即停止当前的动画，以当前状态开始执行下一个动画
+	* 判断元素是否处于动画状态
+		* is(':animated')
+	* 延迟动画
+		* 队列中使用delay(200)
+	* 其他动画方法
+		* toggle()
+			* 切换 hide(),show()
+		* slideToggle()
+			* 切换 slideUp(),slideDown()
+		* fadeTo()
+			* 把元素透明度以渐进方式调整到指定值 fadeTo(600,0.2)
+		* fadeToggler()
+			* 切换 fadeIn(),fadeOut()
