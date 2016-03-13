@@ -237,6 +237,7 @@
 		* stop():立即停止当前的动画，以当前状态开始执行下一个动画
 	* 判断元素是否处于动画状态
 		* is(':animated')
+		* 使用动画的时候都要进行该判断，防止动画队列累积
 	* 延迟动画
 		* 队列中使用delay(200)
 	* 其他动画方法
@@ -248,3 +249,45 @@
 			* 把元素透明度以渐进方式调整到指定值 fadeTo(600,0.2)
 		* fadeToggler()
 			* 切换 fadeIn(),fadeOut()
+
+
+## 4 JQuery对表单表格的操作和更多应用
+* JQuery的实际应用
+* 表单
+	* 对表单的CSS操作：height（）,scrollTop(),background等
+	* 全选/全不选 按钮
+		* checked属性来控制
+		* 全选按钮和选项的同步
+		* prop():只添加属性名该属性就产生效应；只存在true/false属性值的属性时代替attr()
+	* 下拉菜单
+		* 取得节点，appendTo
+		* appendTo()可以同时完成删除和追加
+	* 表单验证
+		* 正则表达式
+		* 判断是否可提交：看是否存在错误提示信息，给错误信息添加class，用length判断
+		* 实时提醒，添加keyup和focus事件
+* 表格
+	* 表格变色
+		* 普通的隔行变色：选行，addClass()
+		* 单选框控制表格行高亮：选中行添加高亮，去除兄弟行的高亮，当前行的单选框设置为选中
+		* end()的用法：$('p').addClass('class1').siblings.removeClass('class1').end().find('li')
+		* parents（）获取祖先节点：$('table').parent().parent().addClass('class1')相当于$('table').parents().addClass('class1')
+		* $(this)['removeClass']('selected')相当于$(this).removClass('selected')
+	* 表格展开关闭
+		* toggle(),toggleClass()
+		* $('p').click(function(){..}).click() 表示执行点击操作从而执行那个函数,立即触发
+	* 表格内容筛选
+		* 	filter(':contain('lee')')	
+* 更多应用
+	* 网页字体大小
+		* font-size
+		* parseInt()
+		* slice()
+	* 网页选项卡
+		* 隐藏显示指定内容
+		* 通过<li>的索引显示对应的<div>
+	* 网页换肤
+		* 调用不同的样式表：操作link的href属性
+		* 存入cookie：cookie插件，
+		* 存入cookie：$.cookie('mycssskin',this.id,{path:'/'.expires:10})
+		* 从cookie调用 $.cookie('myscsskin')
