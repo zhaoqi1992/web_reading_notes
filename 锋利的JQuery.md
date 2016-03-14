@@ -211,7 +211,7 @@
 		* 命名空间
 			* bind('click',fn1)   bind('click.plugin',fn2)
 			* unbind('.plugin')
-			* trigger('click!'):不包含在命名空间的事件
+			* trigger('click!'):不包含在命名空间的事件触发
 * 动画
 	* 说白了就是在一定的时间内改变元素的CSS
 	* 任何动画都可以设置速度参数：slow(600),normal(400),fast(200);数字：毫秒
@@ -269,7 +269,7 @@
 * 表格
 	* 表格变色
 		* 普通的隔行变色：选行，addClass()
-		* 单选框控制表格行高亮：选中行添加高亮，去除兄弟行的高亮，当前行的单选框设置为选中
+		* 单选框控制表格行高亮：选中行添加高亮，去除兄弟行的高亮，当前行的单选框设置为选中checked=true
 		* end()的用法：$('p').addClass('class1').siblings.removeClass('class1').end().find('li')
 		* parents（）获取祖先节点：$('table').parent().parent().addClass('class1')相当于$('table').parents().addClass('class1')
 		* $(this)['removeClass']('selected')相当于$(this).removClass('selected')
@@ -281,7 +281,7 @@
 * 更多应用
 	* 网页字体大小
 		* font-size
-		* parseInt()
+		* parseInt(string,10):把string转换为Int型数字10进制
 		* slice()
 	* 网页选项卡
 		* 隐藏显示指定内容
@@ -291,3 +291,25 @@
 		* 存入cookie：cookie插件，
 		* 存入cookie：$.cookie('mycssskin',this.id,{path:'/'.expires:10})
 		* 从cookie调用 $.cookie('myscsskin')
+
+## 5 AJAX
+* ajax用js最基本实现
+	* XMLHttpRequest对象
+	* 按需发送，无刷新（影响后退键的使用）
+	* 创建XHR
+		* IE $request = new Active Object('Microsoft.XMLHTTP')
+		* 非IE： $request = new XMLHttpRequest();
+	* open()
+		* $request.open('GET','请求地址的url',true)true表示异步
+	* send()
+	* onreadystatechange
+		* $request.readyState == 4,$request.status == 200
+* JQuery实现ajax
+	* load()
+	* $.get()
+	* $.post()
+	* $.getScript()
+	* $.getJson
+	* $.ajax
+* 序列化元素
+* jquery中ajax的全局时间
