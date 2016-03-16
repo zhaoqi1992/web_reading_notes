@@ -306,8 +306,42 @@
 		* $request.readyState == 4,$request.status == 200
 * JQuery实现ajax
 	* load()
+		* 载入远程html并插入到dom中
+			* $('p').load(url,data(键值对形式）,fn)
+		* 筛选载入的HTML
+			* 在url后面加上选择器load('text.html .para')
+		* 传递方式
+			* 有data参数，为POST；没有则为GET；默认GET
+		* 回调参数
+			* load('test.html',function(responseText,textStatus（请求状态），XMLHttpRequset）{...})
+			* 三个参数自动传入函数，可以在函数内使用
+			* load()的回调函数在请求发出去后触发，无论请求是否成功
+			* 请求状态：
+				* success
+				* error
+				* notmodified
+				* timeout
 	* $.get()
+		* 全局函数，不针对对象使用
+		* $.get(url,{data},callback,type),type为期待服务器返回内容的格式
+		* $.get()的回调函数在输出成功返回后触发,textstatus=success
+		* $.get(..,function(data,textStatus){..}),data为服务器返回的内容
+		* 数据格式
+			* html
+				* 通用性比较低
+			* xml
+				* 最为通用但是体积大
+			* json
+				* 较为优势
+				* 格式严格
+				* 返回数据必须有双引号
 	* $.post()
+		* 参数和使用与$.get()相同
+		* 与$.get()区别
+			* GET参数跟在URL后进行传递；POST通过send()，作为实体内容传递
+			* GET传输的数据量小；POST传递的数据量大
+			* GET请求数据会被浏览器缓存；POST不会
+			* GET数据在服务器端获取方法不同
 	* $.getScript()
 	* $.getJson
 	* $.ajax
