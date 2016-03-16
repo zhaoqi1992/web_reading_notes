@@ -216,4 +216,55 @@
 				* 不同风格下的按钮都具有这些状态
 				* 对button通过:ative实现；对a元素通过添加类.active实现
 			* 禁用状态
+				* 调整颜色和透明度
+				* 方法
+					* 标签中添加disabled属性 disabled='disabled'
+						* 禁止按钮的默认行为
+					* 添加.disabled
+						* 不会禁止按钮的默认行为，比如说``<a>``依然会链接行为
+	* 图像和图标
+		* 图像分类
+			* .img-responsive 响应式图片
+			* .img-rounded    圆角图片
+			* .img-circle     圆形图片
+			* .img-thumbnail  略缩图片
+				* 用法：在``<img>``标签中添加对应类
+				* 图片大小
+					* 通过图片容器大小来控制图像大小，不要通过CSS直接修改img大小，这样8就不响应了
+				*ie8一下没有圆角效果，bootstrap用CSS3做的圆角效果
 	* 图标
+		* 用CSS3的@font-face配合字体实现icon效果，字体图标
+		* 可以使用第三方图标字体
+		* 添加.glyphicon类实现默认样式，通过:before伪类的content属性调取对应icon编码
+		* ``<span class="glyphicon glyphicon-search"></span>``
+* 网格布局
+	* 通过定义容器大小，一行平分为12份，调整外边距并结合媒体查询
+	* 可以用负外边距抵消内边距
+	* 工作原理
+		* 数据div.row，必须包含在div.container内
+		* div.row内添加列，列数之和不能超过总数12，比如div.col-md-4表示占据4份的一个列
+		* 具体内容放在列内，只有行可以是div.container的子元素
+	* 使用方法
+		* 列组合
+			* 更改数字
+				* ``<div class="col-md-4">.col-md-4</div>``
+				* 通过浮动和宽度百分比实现
+		* 列偏移
+			* 把相邻的列分开点
+			* 列元素上添加类 col-md-offset-x
+				* x表示想要偏移的量，比如col-md-offset-4表示偏移4份
+			* 利用1/12的margin-left，偏移多少，，就加多少margin-left
+			* 列断行显示
+				* 列和偏移列的总数如果超过12，就会断行显示
+		* 列排序
+			* 改变列的方向
+			* 改变左右浮动
+				* 调整right和left
+			* 添加类名
+				* .col-md-push-x:向右
+				* .col-md-pull-x：向左
+					* x表示移动多少份
+		* 列嵌套
+			* 在一个人列中加入一个或多个行，这个行中可以继续添加列。
+			* 被嵌入的行的宽度100%为外部列的宽度
+			* 嵌套列也不要超过12个列		
