@@ -79,21 +79,21 @@
 			* 垂直列表换成水平列表，而且去掉项目符号（编号），保持水平显示
 		* 定义列表
 			* dl(相当于ul）,dt（标题）,dd（内容）
-		* 水平定义列表
-			* .dl-horizontal
-			* 有媒体查询的效果，大于768px的才会水平
-			* 内容和行标题在同一行
-			* 实现
-				* dt左浮动，添加160px宽度
-				* dd设置margin-left:180px达到水平效果
-				* 标题超过160px显示三个省略号
+			* 水平定义列表
+				* .dl-horizontal
+				* 有媒体查询的效果，大于768px的才会水平
+				* 内容（dd）和行标题（dt）在同一行
+				* 实现
+					* dt左浮动，添加160px宽度
+					* dd设置margin-left:180px达到水平效果
+					* 标题超过160px显示三个省略号
 	* 代码
-				* 硬编码<和>必须用&lt和&gt代替
-				* ``<code>``行内代码
-				* ``<pre>``整块代码
-					* 保持原有格式不变，包括空格
-					* 如果代码太多可以给``<prev>``添加类.pre-scrollable，代码高度超过340px时自动添加scroll
-				* ``<kbd>``提示用户输入，比如crtl+v
+		* 硬编码<和>必须用&lt和&gt代替
+		* ``<code>``行内代码
+		* ``<pre>``整块代码
+			* 保持原有格式不变，包括空格
+			* 如果代码太多可以给``<prev>``添加类.pre-scrollable，代码高度超过340px时自动添加scroll
+		* ``<kbd>``提示用户输入，比如crtl+v
 	* 表格
 		* .table基本表格（这个类必须有）
 			* 如果不添加，不会有任何表格效果，即使添加了如.table-hover
@@ -123,8 +123,8 @@
 		* 水平表单
 			* 输入框和标签在同一行
 			*  ``<form>``添加类.form-horizontal
-			*  必须配合网格系统，用div.form-group包住input组，改变.form-group的表现形似
-			*  ..form-group相当于网格系统的row
+			*  必须配合网格系统，用div.form-group包住input组
+			*  form-group相当于网格系统的row
 		* 内联表单 
 			*  ``<form>``添加类.form-inline
 			*  必须给``<input>``标签设置``<label>``兼容屏幕阅读器，如果不需要显示可以给``<label>``标签加.sr-only隐藏
@@ -146,7 +146,7 @@
 				* label添加类raido-inline
 				* 不要用div.radio或者div.checkbox包住
 	* 表单控件大小
-		* 对表单大小的控制
+		* 对表单大小的控制实现
 			* height
 			* line-hight
 			* padding
@@ -156,11 +156,11 @@
 	* 表单状态
 		* 必须给表单添加.form-control
 		* 焦点状态
-			* ：focus
+			* 实现：focus
 			*  改变outline属性
 		* 禁用状态
 			* 添加disabled属性
-			* cursor:not-allowed
+			* 实现：cursor:not-allowed
 			* field设置禁用，整个域都禁用
 				* 禁用的域中如果有legend标签且legend标签中有输入框，输入框不会被禁用
 		* 验证状态
@@ -168,12 +168,12 @@
 				* .has-error
 				* .has-worning
 				* .has-success
-			* 添加对应的图标
-				* 在div.form-group上同时添加类.has-feedback
-				* 在表单里每个div.form-group中添加一个``<span>``
-					* 成功：``<span class="glyphicon glyphicon-ok form-control-feedback"></span>``
-					* 警告：``<span class="glyphicon glyphicon-warning-sign form-control-feedback"></span>``
-					* 错误：``<span class="glyphicon glyphicon-remove form-control-feedback"></span>  ``
+		* 添加对应的图标
+			* 在div.form-group上同时添加类.has-feedback
+			* 在表单里每个div.form-group中添加一个``<span>``
+				* 成功：``<span class="glyphicon glyphicon-ok form-control-feedback"></span>``
+				* 警告：``<span class="glyphicon glyphicon-warning-sign form-control-feedback"></span>``
+				* 错误：``<span class="glyphicon glyphicon-remove form-control-feedback"></span>  ``
 	* 表单提示信息
 		* .help-block
 		* 在div.form-group中加上``<span class="help-block">你输入的信息是正确的</span>``
@@ -199,13 +199,13 @@
 				* .btn-danger
 				* .btn-link
 		* 按钮大小
-			* 通过padding,font-size,line-height,border-radius控制按钮大小
+			* 实现：通过padding,font-size,line-height,border-radius控制按钮大小
 			* .btn基础上增加类
 				* .btn-lg
 				* .btn-sm
 				* .btn-xs(超小)
 		* 块状按钮
-			* 按钮充满这个父容器：width：100%
+			* 实现：按钮充满这个父容器：width：100%
 			* .btn的基础上增加.btn-block
 				* 按钮不会有和人padding和margin（水平方向）
 		* 按钮状态
@@ -230,12 +230,13 @@
 			* .img-thumbnail  略缩图片
 				* 用法：在``<img>``标签中添加对应类
 				* 图片大小
-					* 通过图片容器大小来控制图像大小，不要通过CSS直接修改img大小，这样8就不响应了
+					* 通过图片容器大小来控制图像大小，不要通过CSS直接修改img大小，这样就不响应了
 				*ie8一下没有圆角效果，bootstrap用CSS3做的圆角效果
 	* 图标
-		* 用CSS3的@font-face配合字体实现icon效果，字体图标
-		* 可以使用第三方图标字体
-		* 添加.glyphicon类实现默认样式，通过:before伪类的content属性调取对应icon编码
+		* 参考bootstrap的图标http://getbootstrap.com/components/#glyphicons
+		* 实现：用CSS3的@font-face配合字体实现icon效果，字体图标
+		* 可以使用第三方图标字体，Font Awesome(http://www.bootcss.com/p/font-awesome/)
+		* 实现：添加.glyphicon类实现默认样式，通过:before伪类的content属性调取对应icon编码
 		* ``<span class="glyphicon glyphicon-search"></span>``
 * 网格布局
 	* 通过定义容器大小，一行平分为12份，调整外边距并结合媒体查询
@@ -268,3 +269,384 @@
 			* 在一个人列中加入一个或多个行，这个行中可以继续添加列。
 			* 被嵌入的行的宽度100%为外部列的宽度
 			* 嵌套列也不要超过12个列		
+## 菜单、按钮、导航
+* 下拉菜单
+	* 基本用法
+		* 必须加入jquery.js和bootstrap.js
+		* 用法
+			* 用一个div.dropdown包裹整个下拉菜单元素
+			* 用一个button.dropdown-toggle[data-toggle=dropdown]作为父菜单，data-toggle属性为bootstrap自定义属性，属性值必须和最外容器类名一致，就写成ata-toggle=‘dropdown’
+				* ``<span class='caret'></span>``在button内容后面加上，会显示下拉提示箭头
+			* 下拉菜单用一个ul列表，ul.dropdown-menu
+	* 原理
+		* 给.dropdown-menu默认样式中设置了display:none；默认状态下拉菜单隐藏
+		* 用户点击button.dropdown-toggle时，通过给div.dropdown添加或删除.open类来控制显示或隐藏
+	* 下拉分割线
+		* 在下拉菜单的两组中间添加一个空的li.divider实现分隔线功能
+	* 菜单标题
+		* 给下拉菜单的每个分组添加一个标题
+		* 用法
+			* 添加li.dropdown-header{标题内容}，表示一个分组的标题
+	* 对齐方式
+		* 菜单按钮相对于菜单内容左对齐或者右对齐
+		* 默认是左对齐
+		* 变成右对齐
+			* 给.dropdown添加样式float:left；
+			* .dropdown-menu上添加.pull-right或者.dropdown-menu-right
+				* 实现原理
+					* right:0;left:auto;
+			* 再变回左对齐
+				* .dropdown-menu添加.dropdown-menu-left
+					* 实现：right:quto;left:0;
+	* 菜单项状态
+		* ：hover
+		* :focus
+		* .active
+			* 对应的li上添加该类
+		* .disabled
+			* 对应的li上添加该类
+* 按钮组
+	* 按钮组
+		* 必须添加jquery.js和bootstrap.js
+		* 用div.btn-group容器把多个按钮包裹起来形成按钮组
+			* 容器内的元素必须有.btn类（bootstrap的按钮标志，最好是``<a>``和``<button>``）
+		* 按钮组出了第一个和最后一个具有边上的圆角，其他按钮没有圆角。（一般bootstrap中的按钮都有圆角）
+			* 实现：
+				* 默认所有按钮有圆角
+				* 除了第一个和最后一个，其他按钮取消圆角效果
+				* 第一个保留左边的圆角：border-top-right-radius: 0;border-bottom-right-radius: 0;
+				* 最后一个保留右边的圆角：border-top-left-radius: 0;border-bottom-left-radius: 0;
+	* 按钮工具栏
+		* 用一个div.btn-toolbar将多个div.btn-group包裹起来，形成工具栏
+			* 实现方式
+				* 将被包含的div.btn-group左浮动，并组间保持5px的左外边距
+				* 在.btn-toolbar上清除浮动
+					* .btn-toolbar:after{clear:both}
+		* 按钮组大小
+			* 类似操作按钮大小，在div.btn-group上添加相应类
+			* .btn-group-lg
+			* .btn-group-sm
+			* .btn-group-xs
+	* 嵌套分组
+		* 结合下拉菜单和按钮组
+		* 使用
+			* 把div.dropdown容器换成div.btn-group,并且和普通按钮放在同一级，下拉菜单其他部分不变，button[data-toggle=dropdown](为了触发js中相关部分,所以不能变)
+			* 把下拉菜单当作一个按钮组作为外层按钮组的一个子按钮
+	* 垂直分组
+		* 把最外层.btn-group换成.btn-group-vertical
+		* 如果进行嵌套，里面的每个下拉菜单还是用div.btn-group包裹
+	* 等分按钮组（自适应分组）
+		* 自适应分组，整个按钮组是容器的100%，组中的按钮平分容器宽度
+		* .btn-group上追加.btn-group-justified
+		* 原理
+			* 把btn-group-justified模拟成表格：display:table;把按钮模拟成表格单元：display:table-cell;
+		* 制作等分按钮组最好使用``<a>``来制作按钮，保证兼容性
+	* 按钮下拉菜单
+		* 结合下拉菜单和按钮
+		* 在按钮的基础上增加下拉菜单相关的类`` <button class="btn btn-default dropdown-toggle" data-toggle="dropdown" type="button">按钮下拉菜单<span class="caret"></span></button>``
+	* 按钮向下向上三角形
+		* ``<span class="caret"></span>``下拉标志的三角形；该三角形完全由CSS实现
+		* 三角形朝上：.btn-group上追加.dropup
+			* 原理：改变border-bottom
+	* 向上弹起的下拉菜单
+		* 追加类.dropup
+			* 如果是普通下拉菜单，在.dropdown上追加
+			* 如果是按钮组结合下拉菜单，在.btn-group上追加
+			* ``<span class="caret"></span>``自动变成向上的按钮
+* 导航
+	* 基础样式
+		* ul.nav.nav-tabs>li>a{导航文字}
+			* 单独的.nav没有导航效果，必须再配合.nav-tabs或者.nav-pills
+	* 标签形tab导航
+		* 在.nav上追加.nav-tabs
+			* 实现原理
+				* li按块显示，并在同一水平行上排列
+				* 定位非高亮菜单样式和鼠标悬浮效果
+		* 添加当前选项（设置默认选项）
+			* li.active
+		* 禁用选项
+			* li.disabled
+	* 胶囊形导航
+		* .nav追加.nav-pills
+			* .active
+			* .disabled
+	* 垂直堆叠导航
+		* 在.nav.nav-pills的基础上追加.nav-stacked
+			* 实现：导航不浮动，垂直排列，相邻导航项留有一定间距
+		* 组间分割线
+			* li.nav-divider
+	* 自适应导航
+		* 在.nav.nav-tabs或.nav.nav-pills的基础上增加.nav-justified
+			* 效果如同.btn-group-justified
+			* 存在媒体查询，视口宽度大于768px在一行显示
+			* 实现原理
+				* ul设置为width:100%;li设置为display:table-cell
+	* 导航加下拉菜单
+		* 导航结合下拉菜单
+		* li当作容器，添加类.dropdown;在容器内添加下拉菜单的内容
+			* 可以在嵌套的下拉菜单中添加li.nav-divider或者li.divider充当分隔线
+	* 面包屑导航
+		* 告诉用户现在所处页面的位置
+		* 使用：ol.breadcrumb>li>a
+
+##导航条
+* 导航条基础
+	* 和导航的区别
+		* 导航条有背景色，可以是纯链接，可以是表单，还可以表单导航相结合
+* 基础导航条
+	* div.navbar.nabar-default>ul.nav.navbar-nav
+		* 导航的列表基础上添加.navbar-nav,并添加新的容器div,navbar.navbar-default
+		* .navbar在导航.nav基础上，调整菜单浮动、设置左右padding和圆角效果，.navbar-default设置颜色
+* 为导航条添加标题、二级菜单及状态
+	* div.nvbar.navbar-default>div.navbar-header>a.navbar-brand{标题文字}
+		* 可以在菜单项中.avtive,.disabled
+		* 添加下拉菜单，li.dropdown当作容器
+* 带表单的导航条
+	* div.navbar.navbar-default>ul.nav.navbar-nav+form.navbar-form
+		* 在导航条中添加一个form.navbar-form
+			* form追加样式.navbar-left,.navbar-right表示左对齐和右对齐
+* 导航条中的按钮、文本和链接（没什么用）
+	* 要和.navbar-brand、.navbar-nav配合使用，且数量最多两个
+	* .navbar-btn
+	* .navbar-text
+	* .navbar-link
+* 固定导航条
+	* 在导航条最外部容器div.navbar上追加以下类
+	* .navbar-fixed-top
+	* .navbar-fixed-bottom
+		* 实现：position:fixed；top或者bottom为0
+		* 固定导航条遮挡主内容
+			* 固定导航条默认高度50px，body设置padding-top:70px;或padding-bottom:70px;
+			* 把导航条放到内容前面（html中）
+* 响应式导航条
+	* 窄屏时需要折叠的内容必须包含在div.collapse.navbar-collapse内，并给这个div添加ID或类名
+	* 保证窄屏时显示的图标样式（固定写法）
+		* ``<button class="navbar-toggle" type="button" data-toggle="collapse" data-target='#ID>``
+  ``<span class="sr-only">Toggle Navigation</span>``
+  ``<span class="icon-bar"></span>``
+  ``<span class="icon-bar"></span>``
+  ``<span class="icon-bar"></span>``
+``</button>``
+	* data-target属性指定需要折叠的div
+	* 当屏幕小于768px时，data-target指定位置的div隐藏，显示icon-bar图标；再电子icon-bar图标，隐藏内容显示
+* 反色导航条
+	* 把.navbar-default换成.navbar-inverse
+		* 颜色变化
+* 分页导航（带页码）
+	* ul.pagination>li>a{1,2,3,...}
+	* 设置大小
+		* .pagination-lg
+		* .pagination-sm
+	* li.disable不能禁用点击功能
+		* 把``<a>``换成``<span>``
+* 分页导航（翻页分页导航）
+	* ul.pager>(li>a{第一页}+li>a{第二页})
+		* 默认状态下分页导航居中显示
+			* li.previous“上一页”按钮居左
+			* li.next“下一页”按钮居右
+		* li.disable不能禁用点击功能
+			* 把``<a>``换成``<span>``
+* 标签
+	* 额外信息，提示作用
+	* span.label.label-default
+		* 颜色
+			* .label-default
+			* .label-primary
+			* .label-success
+			* .label-info
+			* .label-warning
+			* .label-danger
+* 徽章
+	* 未读消息提醒
+	* span.badge
+		* 紧跟选项后面
+			* 行内元素是可以放到文字节点边上的
+
+## 其他内置组件
+* 略缩图
+	* 一行几张图片，并附有描述信息
+	* .thumbnail配合网格系统实现
+		* div.container>div.row>div.col-md-x>a.thumbnail>img
+		* 添加描述信息
+			* div.container>div.row>div.col-md-x>(a.thumbnail>img+div.caption)
+				* div.caption中防止其他内容，如标题，文本，按钮等
+* 警示框
+	* 默认警示框
+		* div.alert.alert-success{文本}
+			* .alert-info
+			* .alert-warning
+			* .alert.danger
+	* 可关闭警示框
+		* .alert上追加.alert-dismissable
+		* div.alert.alert-dismissable>button.close[data-dismiss=alert]{&times};
+			* .close实现警示框关闭按钮的样式
+			* data-dismiss='alert'调用js控制关闭
+			* &times显示为叉号
+	* 警示框链接
+		* 给警示框的链接添加.alert-link
+		* div.alert.alert-info>a.alert-link{链接地址}
+* 进度条
+	* 基本样式
+		* 两个容器，外部容器表示总进度100%，内部表示当前进度，通过宽度来表示进度
+		* div.progress>div.progress-bar[style='width:40%']
+	* 彩色进度条
+		* .progress-bar追加颜色
+			* .progress-bar-success
+			* .progress-bar-info
+			* .progess-bar-warning
+			* .progress-bar-danger
+	* 条纹进度条
+		* 在.progress上追加.progress-striped
+			* CSS3线性渐变
+	* 动态进度条
+		* 在div.progress.progress-striped上追加.active
+			* 动画使背景图像位置不断变化
+	* 层叠进度条
+		* 不同颜色的进度条放置在一起水平排列
+		* div.progress>(div.progress-bar)*3
+			* 所有进度条的宽度总和不能超过100%
+			* 左浮动
+	* 带label的进度条
+		* div.progress>div.progress-bar.progress-bar-success[aria-valuenow='20'][aria-valuemin='0][aria-valuemax='100'][style='width:20%]{20%}
+* 媒体对象
+	* 默认媒体对象
+		* div.meida>（a.pull-left>img.media-object）+div.media-body>h1.media-heading
+			* .pull-left表示整体居左
+			* .media-object一般指图片作为媒体对象的对象
+			* .media-body媒体对象的主体
+			* .media-heading用来描述一个对象的标题，可选
+	* 媒体对象的嵌套
+		* 把一组媒体对象放到另一组的.media-body中
+			* 阶梯式回复
+	* 媒体对象列表
+		* ul.media-list>li.media
+			* li.media当作默认媒体对象中的外层div.media
+			* 实际上就是把媒体对象放到列表中
+* 列表组
+	* 基础列表组
+		* ul.list-group>li.list-group-item
+	* 带徽章的列表组
+		* li.list-item>span.badge{13}
+			* 列表组和徽章组件结合
+	* 带链接的列表组
+		* 用div.list-group>a.list-group-item代替原来的组合
+			* ul和li的配合插入链接，只有文字区域可点击
+			* div和a的组合使得整个区域可点击
+	* 自定义列表组
+		* div.list-group>a.list-group-item>h1.list-group-item-heading+p.list-group-item -text
+			* .list-group-item-heading表示定义列表头样式
+			* .list-group-item -text定义列表内容
+	* 列表组状态设置
+		* 在.list-group-item上追加
+			* .active
+			* .disabled
+	* 多彩列表组
+		* 在.list-group-item上追加
+			* .list-group-item-success 
+			* .list-group-item-info
+			* .list-group-item-warning
+			* .list-group-item-danger
+* 面板
+	* 基础面板
+		* div.panel.panel-default>div.panel-body
+	* 带有头和尾的面板
+		* div.panel.panel-default>(div.panel-heading+div.panel-body+div.panel-footer)
+	* 彩色面板
+		* 替换.panel-default
+			* .panel-success
+			* .panel-info
+			* .panel-warning
+			* .panel-danger
+	* 面板中嵌套表格
+		* div.panel-body就是一个容器，包裹面板内容
+		* 把``<table>``放到div.panel-body中
+			* 把``<table>``放到div.panel-body外
+				* 表格边缘和面板边缘重合
+	* 面板中嵌套列表
+		* div.panel-body就是一个容器，包裹面板内容
+		* 把ul.list-group放到div.panel-body中
+			* 列表和面板边缘有间距
+				* 把ul.list-group放到div.panel-body外
+					* 列表和面板边缘重合
+
+##支持的js插件
+* 各功能插件被整合在bootstrap.js中
+* 导入js插件
+	* 直接导入bootstrap.js或者分开导入各部分插件
+* 动画过渡
+	* 对应插件transition.js
+	* CSS3实现<ie8的不起作用
+* 模态弹出框
+	* 结构分析
+		* div.modal>div.modal-dialog>div.modal-content>(div.modal-header+div.modal-body+div.modal-footer)
+		* 实例
+			* <code>``<div class="modal" id="mymodal-data" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">``
+	``<div class="modal-dialog">``
+		``<div class="modal-content">
+			``<div class="modal-header">
+				``<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>``
+				``<h4 class="modal-title">模态弹出窗标题</h4>``
+			</div>
+			``<div class="modal-body">``
+				``<p>模态弹出窗主体内容</p>``
+			</div>
+			``<div class="modal-footer">``
+				``<button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>``
+				``<button type="button" class="btn btn-primary">保存</button>``
+			</div>``
+		</div>``
+	</div>``
+</div>``</code>
+	* 实现原理
+		* 特点
+			* 模态弹窗固定在浏览器
+			* 模态弹窗是自适应的且.modal-dialog水平居中
+			* 视窗大于768px时，模态弹窗的宽度为600px
+		* 模态弹窗自带蒙版效果
+		* 调整弹窗大小
+			* 在.modal-dialog上追加样式.modal-lg,.modal-sm
+	* 触发的两种方法
+		* 声明式触发
+			* button[data-toggle='modal'][data-target='#id']+div.modal#id
+			* a[data-toggle='modal'][href='#id']
+		* js触发
+			* button.btn+div.modal#id
+			* $('.btn').click(function(){$("#id").modal()})
+	* 为弹出框增加过度动画效果
+		* 在.madol追加类名.fade为弹出框增加过渡动画效果
+	* 使用
+		* data-参数说明(作为属性使用，放到触发器上）
+			* data-toggle
+			* data-target
+			* data-backdrop
+				* 如果为true，会包含一个背景div，单击背景则关闭弹窗
+				* 如果为static，单击背景不会关闭弹窗
+			* data-keyboard
+				* true：可以通过ESC键关闭弹窗
+				* false：ESC不可关闭弹窗
+			* data-show
+				* true：显示弹窗
+				* false：不显示弹窗
+			* href
+				* 用``<a>``触发，href不是以#开头，表示是一个url，弹窗会先加载url内容，并替换.modal-content中的内容
+				* href设置地址，data-target必须填写定制的id
+	* js方法触发时的参数设置
+		* $('.btn').click(function(){$('#mymodal'),modal({keyboard:false});})
+			* modal()中的参数(和data系列参数对应)
+				* backdrop布尔值
+				* keyboard布尔值
+				* show布尔值，表示初始化时模态弹出窗是否显示
+				* remote
+				* toggle反转弹出窗的显示状态
+				* show 触发时显示弹出窗
+				* hide 触发时关闭弹出窗
+			* 支持的事件类型
+				* show.bs.modal
+					* show调用时触发
+				* shown.bs.modal
+					* 弹出窗完全显示后触发
+				* hide.bs.modal
+					* hide调用时触发
+				* hiden.bs.modal
+					* 弹出窗完全隐藏后触发
+				* $('#mymodal').on('hidden.bs.modal',function(){...})
