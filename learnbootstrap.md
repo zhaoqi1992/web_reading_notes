@@ -39,7 +39,7 @@
 			* 行高为1.42857143（line-height），大约是20px
 			* 颜色为深灰色（#333）
 			* 字体为"Helvetica Neue", Helvetica, Arial, sans-serif;（font-family）
-		* p元素默认margin-bottom:10px;
+			* p元素默认margin-bottom:10px;
 		* 强调内容
 			* 添加类名.lead
 				* 增大字号，加粗文本，调整行高和margin
@@ -57,33 +57,33 @@
 				* .text-danger：危险
 		* 文本对齐
 			* 通过类来控制效果
-			* .text-left
-			* .text-right
-			* .text-center
-			* .text-justify;两端对齐
+				* .text-left
+				* .text-right
+				* .text-center
+				* .text-justify;两端对齐
 	* 列表
 		* 普通列表
 			* 正常的ul
-			* 对margin做了点优化
-			* 可嵌套
+				* 对margin做了点优化
+				* 可嵌套
 		* 有序列表
 			* 正常的ol
-			* 对margin做了点优化
-			* 可嵌套
+				* 对margin做了点优化
+				* 可嵌套
 		* 去点列表
 			* .list-unstyled
 				* 去除左内边距
 				* list-style:none
 		* 内联列表
 			* .list-inline
-			* 垂直列表换成水平列表，而且去掉项目符号（编号），保持水平显示
+				* 垂直列表换成水平列表，而且去掉项目符号（编号），保持水平显示
 		* 定义列表
 			* dl(相当于ul）,dt（标题）,dd（内容）
 			* 水平定义列表
 				* .dl-horizontal
-				* 有媒体查询的效果，大于768px的才会水平
-				* 内容（dd）和行标题（dt）在同一行
-				* 实现
+					* 有媒体查询的效果，大于768px的才会水平
+					* 内容（dd）和行标题（dt）在同一行
+					* 实现
 					* dt左浮动，添加160px宽度
 					* dd设置margin-left:180px达到水平效果
 					* 标题超过160px显示三个省略号
@@ -91,16 +91,16 @@
 		* 硬编码<和>必须用&lt和&gt代替
 		* ``<code>``行内代码
 		* ``<pre>``整块代码
-			* 保持原有格式不变，包括空格
 			* 如果代码太多可以给``<prev>``添加类.pre-scrollable，代码高度超过340px时自动添加scroll
+			* 保持原有格式不变，包括空格
 		* ``<kbd>``提示用户输入，比如crtl+v
 	* 表格
 		* .table基本表格（这个类必须有）
 			* 如果不添加，不会有任何表格效果，即使添加了如.table-hover
-			* 实现
-				* 设置表格的margin-bottom和表格内距
-				* thead下面2px灰色实线
-				* 每个单元格顶部1px灰色线
+				* 实现
+					* 设置表格的margin-bottom和表格内距
+					* thead下面2px灰色实线
+					* 每个单元格顶部1px灰色线
 		* .table-striped斑马线表格
 		* .table-bordered带边框的表格
 		* .table-hover鼠标悬停高亮的表格
@@ -108,7 +108,7 @@
 		* .table-responsive响应式表格
 			* 应用于一个div来包含表格，使得表格具有响应式
 			* 其他的类都是直接用在``<table>``上
-		* 几种类可以组合使用，必须包含.table类
+			* 几种类可以组合使用，必须包含.table类
 		* 表格行的类``<tr>``
 			* 添加类使表格行有不同的颜色
 				* .avtive
@@ -123,12 +123,12 @@
 		* 水平表单
 			* 输入框和标签在同一行
 			*  ``<form>``添加类.form-horizontal
-			*  必须配合网格系统，用div.form-group包住input组
-			*  form-group相当于网格系统的row
+				*  必须配合网格系统，用div.form-group包住input组
+				*  form-group相当于网格系统的row
 		* 内联表单 
 			*  ``<form>``添加类.form-inline
-			*  必须给``<input>``标签设置``<label>``兼容屏幕阅读器，如果不需要显示可以给``<label>``标签加.sr-only隐藏
-			*  labelh会导致换行，input在label的下一行；如果你必须添加这样的一个label标签，并且不想让input换行，你需要将label标签也放在容器“form-group”中
+				*  必须给``<input>``标签设置``<label>``兼容屏幕阅读器，如果不需要显示可以给``<label>``标签加.sr-only隐藏
+				*  label会导致换行，input在label的下一行；如果你必须添加这样的一个label标签，并且不想让input换行，你需要将label标签也放在容器“form-group”中
 	* 表单控件
 		* ``<input>``添加.form-control
 		* select
@@ -146,13 +146,13 @@
 				* label添加类raido-inline
 				* 不要用div.radio或者div.checkbox包住
 	* 表单控件大小
-		* 对表单大小的控制实现
-			* height
-			* line-hight
-			* padding
-			* font-size
 		* input.input-sm比正常大小更小
 		* input.input-lg比正常大小更大
+			* 对表单大小的控制实现
+			* height
+				* line-hight
+				* padding
+				* font-size
 	* 表单状态
 		* 必须给表单添加.form-control
 		* 焦点状态
@@ -160,9 +160,9 @@
 			*  改变outline属性
 		* 禁用状态
 			* 添加disabled属性
-			* 实现：cursor:not-allowed
-			* field设置禁用，整个域都禁用
-				* 禁用的域中如果有legend标签且legend标签中有输入框，输入框不会被禁用
+				* 实现：cursor:not-allowed
+				* field设置禁用，整个域都禁用
+					* 禁用的域中如果有legend标签且legend标签中有输入框，输入框不会被禁用
 		* 验证状态
 			* 在div.form-group上添加类
 				* .has-error
@@ -176,21 +176,21 @@
 				* 错误：``<span class="glyphicon glyphicon-remove form-control-feedback"></span>  ``
 	* 表单提示信息
 		* .help-block
-		* 在div.form-group中加上``<span class="help-block">你输入的信息是正确的</span>``
-		* 提示信息会显示在输入控件的下方
+			* 在div.form-group中加上``<span class="help-block">你输入的信息是正确的</span>``
+			* 提示信息会显示在输入控件的下方
 	* 按钮
 		* 必须有.btn
 		* 基本按钮
 			* button.btn
 		* 默认按钮
 			* .btn的基础上增加.btn-default
-			* 改变按钮的颜色、边框颜色和文本颜色
+				* 改变按钮的颜色、边框颜色和文本颜色
 		* 多标签支持
 			* 任何标签添加了类.btn都可以变成按钮
 			* 为了保证兼容性，建议只用button和a标签来制作按钮
 		* 定制风格
 			* 在.btn的基础上添加指定的类名
-			* 边框颜色，按钮颜色，文字颜色不同
+				* 边框颜色，按钮颜色，文字颜色不同
 			* 类别
 				* .btn-primary
 				* .btn-success
@@ -199,14 +199,14 @@
 				* .btn-danger
 				* .btn-link
 		* 按钮大小
-			* 实现：通过padding,font-size,line-height,border-radius控制按钮大小
 			* .btn基础上增加类
 				* .btn-lg
 				* .btn-sm
 				* .btn-xs(超小)
+					* 实现：通过padding,font-size,line-height,border-radius控制按钮大小
 		* 块状按钮
-			* 实现：按钮充满这个父容器：width：100%
 			* .btn的基础上增加.btn-block
+				* 实现：按钮充满这个父容器：width：100%
 				* 按钮不会有和人padding和margin（水平方向）
 		* 按钮状态
 			* 活动状态
@@ -216,7 +216,6 @@
 				* 不同风格下的按钮都具有这些状态
 				* 对button通过:ative实现；对a元素通过添加类.active实现
 			* 禁用状态
-				* 调整颜色和透明度
 				* 方法
 					* 标签中添加disabled属性 disabled='disabled'
 						* 禁止按钮的默认行为
@@ -233,11 +232,11 @@
 					* 通过图片容器大小来控制图像大小，不要通过CSS直接修改img大小，这样就不响应了
 				*ie8一下没有圆角效果，bootstrap用CSS3做的圆角效果
 	* 图标
-		* 参考bootstrap的图标http://getbootstrap.com/components/#glyphicons
-		* 实现：用CSS3的@font-face配合字体实现icon效果，字体图标
-		* 可以使用第三方图标字体，Font Awesome(http://www.bootcss.com/p/font-awesome/)
-		* 实现：添加.glyphicon类实现默认样式，通过:before伪类的content属性调取对应icon编码
 		* ``<span class="glyphicon glyphicon-search"></span>``
+			* 参考bootstrap的图标http://getbootstrap.com/components/#glyphicons
+			* 实现：用CSS3的@font-face配合字体实现icon效果，字体图标
+			* 可以使用第三方图标字体，Font Awesome(http://www.bootcss.com/p/font-awesome/)
+			* 实现：添加.glyphicon类实现默认样式，通过:before伪类的content属性调取对应icon编码
 * 网格布局
 	* 通过定义容器大小，一行平分为12份，调整外边距并结合媒体查询
 	* 可以用负外边距抵消内边距
@@ -247,16 +246,15 @@
 		* 具体内容放在列内，只有行可以是div.container的子元素
 	* 使用方法
 		* 列组合
-			* 更改数字
-				* ``<div class="col-md-4">.col-md-4</div>``
+			* ``<div class="col-md-4">.col-md-4</div>``
 				* 通过浮动和宽度百分比实现
 		* 列偏移
 			* 把相邻的列分开点
 			* 列元素上添加类 col-md-offset-x
 				* x表示想要偏移的量，比如col-md-offset-4表示偏移4份
-			* 利用1/12的margin-left，偏移多少，，就加多少margin-left
-			* 列断行显示
-				* 列和偏移列的总数如果超过12，就会断行显示
+				* 利用1/12的margin-left，偏移多少，，就加多少margin-left
+				* 列断行显示
+					* 列和偏移列的总数如果超过12，就会断行显示
 		* 列排序
 			* 改变列的方向
 			* 改变左右浮动
@@ -338,11 +336,11 @@
 	* 等分按钮组（自适应分组）
 		* 自适应分组，整个按钮组是容器的100%，组中的按钮平分容器宽度
 		* .btn-group上追加.btn-group-justified
-		* 原理
-			* 把btn-group-justified模拟成表格：display:table;把按钮模拟成表格单元：display:table-cell;
+			* 原理
+				* 把btn-group-justified模拟成表格：display:table;把按钮模拟成表格单元：display:table-cell;
 		* 制作等分按钮组最好使用``<a>``来制作按钮，保证兼容性
 	* 按钮下拉菜单
-		* 结合下拉菜单和按钮
+		* 把其中一个子按钮当成触发下拉菜单的按钮
 		* 在按钮的基础上增加下拉菜单相关的类`` <button class="btn btn-default dropdown-toggle" data-toggle="dropdown" type="button">按钮下拉菜单<span class="caret"></span></button>``
 	* 按钮向下向上三角形
 		* ``<span class="caret"></span>``下拉标志的三角形；该三角形完全由CSS实现
@@ -352,7 +350,7 @@
 		* 追加类.dropup
 			* 如果是普通下拉菜单，在.dropdown上追加
 			* 如果是按钮组结合下拉菜单，在.btn-group上追加
-			* ``<span class="caret"></span>``自动变成向上的按钮
+				* ``<span class="caret"></span>``自动变成向上的三角
 * 导航
 	* 基础样式
 		* ul.nav.nav-tabs>li>a{导航文字}
@@ -395,7 +393,7 @@
 		* 导航条有背景色，可以是纯链接，可以是表单，还可以表单导航相结合
 * 基础导航条
 	* div.navbar.nabar-default>ul.nav.navbar-nav
-		* 导航的列表基础上添加.navbar-nav,并添加新的容器div,navbar.navbar-default
+		* 导航的列表基础上添加.navbar-nav,并添加新的容器div.navbar.navbar-default
 		* .navbar在导航.nav基础上，调整菜单浮动、设置左右padding和圆角效果，.navbar-default设置颜色
 * 为导航条添加标题、二级菜单及状态
 	* div.nvbar.navbar-default>div.navbar-header>a.navbar-brand{标题文字}
@@ -404,7 +402,7 @@
 * 带表单的导航条
 	* div.navbar.navbar-default>ul.nav.navbar-nav+form.navbar-form
 		* 在导航条中添加一个form.navbar-form
-			* form追加样式.navbar-left,.navbar-right表示左对齐和右对齐
+		* form追加样式.navbar-left,.navbar-right表示左对齐和右对齐
 * 导航条中的按钮、文本和链接（没什么用）
 	* 要和.navbar-brand、.navbar-nav配合使用，且数量最多两个
 	* .navbar-btn
@@ -428,7 +426,7 @@
   ``<span class="icon-bar"></span>``
 ``</button>``
 	* data-target属性指定需要折叠的div
-	* 当屏幕小于768px时，data-target指定位置的div隐藏，显示icon-bar图标；再电子icon-bar图标，隐藏内容显示
+	* 当屏幕小于768px时，data-target指定位置的div隐藏，显示icon-bar图标；再点击icon-bar图标，隐藏内容显示
 * 反色导航条
 	* 把.navbar-default换成.navbar-inverse
 		* 颜色变化
@@ -464,7 +462,6 @@
 
 ## 其他内置组件
 * 略缩图
-	* 一行几张图片，并附有描述信息
 	* .thumbnail配合网格系统实现
 		* div.container>div.row>div.col-md-x>a.thumbnail>img
 		* 添加描述信息
@@ -580,31 +577,31 @@
 	* 结构分析
 		* div.modal>div.modal-dialog>div.modal-content>(div.modal-header+div.modal-body+div.modal-footer)
 		* 实例
-			* <code>``<div class="modal" id="mymodal-data" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">``
-	``<div class="modal-dialog">``
-		``<div class="modal-content">
-			``<div class="modal-header">
-				``<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>``
-				``<h4 class="modal-title">模态弹出窗标题</h4>``
+			* <prev> <div class="modal" id="mymodal-data" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+				<h4 class="modal-title">模态弹出窗标题</h4>
 			</div>
-			``<div class="modal-body">``
-				``<p>模态弹出窗主体内容</p>``
+			<div class="modal-body">
+				<p>模态弹出窗主体内容</p>
 			</div>
-			``<div class="modal-footer">``
-				``<button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>``
-				``<button type="button" class="btn btn-primary">保存</button>``
-			</div>``
-		</div>``
-	</div>``
-</div>``</code>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+				<button type="button" class="btn btn-primary">保存</button>
+			</div>
+		</div>
+	</div>
+</div></prev>
 	* 实现原理
 		* 特点
 			* 模态弹窗固定在浏览器
 			* 模态弹窗是自适应的且.modal-dialog水平居中
 			* 视窗大于768px时，模态弹窗的宽度为600px
 		* 模态弹窗自带蒙版效果
-		* 调整弹窗大小
-			* 在.modal-dialog上追加样式.modal-lg,.modal-sm
+	* 调整弹窗大小
+		* 在.modal-dialog上追加样式.modal-lg,.modal-sm
 	* 触发的两种方法
 		* 声明式触发
 			* button[data-toggle='modal'][data-target='#id']+div.modal#id
@@ -631,7 +628,7 @@
 				* 用``<a>``触发，href不是以#开头，表示是一个url，弹窗会先加载url内容，并替换.modal-content中的内容
 				* href设置地址，data-target必须填写定制的id
 	* js方法触发时的参数设置
-		* $('.btn').click(function(){$('#mymodal'),modal({keyboard:false});})
+		* $('.btn').click(function(){$('#mymodal').modal({keyboard:false});})
 			* modal()中的参数(和data系列参数对应)
 				* backdrop布尔值
 				* keyboard布尔值
