@@ -43,6 +43,43 @@
 * 指定初始值
 #7.正则表达式
 #8.对象方法  
+* Array
+	* array.contact(item)
+	* array.join(separator)
+	* array.pop()
+	* array.push(item)
+	* array.reverse()
+	* array.shift()
+	* array.slice(start,end)
+	* array.sort(comparefn)
+	* array.splice(start,deleteCount,item)
+	* array.unshift(item)
+* Function
+	* function.apply(thisArg,argArray)
+* Number
+	* number.toExponentia(fractionDigits)
+	* number.toFixed(fractionDigits)
+	* number.toPrecision(precision)
+	* number.toString(radix)
+* Object
+	* object.hasOwnProperty(name)
+* RegExp
+* String
+	* string.chartAt(pos)
+	* string.charCodeAt(pos)
+	* string.concat(string...)
+	* string.indexOf(searchString,position)
+	* string.lastIndexOf(searchstring,position)
+	* string.localeCompare(that)
+	* string.match(regexp)
+	* string.replace(searchValue,replaceValue)
+	* string.search(regexp)
+	* string.slice(start,end)
+	* string.split(separator,limit)
+	* string.substring(start,end)
+	* string.toLowerCase()
+	* string.toUpperCase()
+	* string.fromCharCode(char...)
 ***
 ##精华
 * js是web唯一的编程语言
@@ -266,3 +303,116 @@
 * 部件 
 
 ## 数组
+* 数组字面量
+	* js中，数组也是对象
+	* 数组的属性名为'0','1'...
+		* 也可以用对象字面量创建数组，但是继承自Object.prototype
+		* 常规的数组字面量创建数组，继承自Array.prototype
+	* 数组有length属性
+	* 数组可以包含任何混合类型的值
+* 长度
+	* 如果用大于当前length的数字作为下标来存储元素，length值会被增大，不会发生越界错误
+	* []会把其中的表达式转换成字符串
+	* length属性的值是数组最大整数属性名加1
+	* 设置更大的length不会给数组分配更多的空间，length设小将会导致所有下标大于等于新length的属性被删除
+* 删除
+	* splice方法
+	* delete方法，删除对象元素的方法，会在数组留下一个空洞，
+		* 排在被删除元素之后的元素保留着最初的属性，不会向前移动
+* 枚举
+	* for(var i=0;i<array.length;i++){...}
+		* 不要用for-in
+* 容易混淆的地方
+	* 区分什么时候用数组，什么时候用对象
+* 扩展方法
+	* 在Array.prototype上扩展方法
+	* 给单个数组扩展方法
+		* 相当于给对象扩展
+* 指定初始值
+	* JS数组没有预置值
+	* 访问一个不存在的元素，得到undefined；
+	* JS处理二维数组 
+		* 元素为数组的数组
+		* 通过for来解决，类似C中的多维数组
+
+## 方法
+* Array
+	* array.concat(item)
+		* 包含对array的浅复制，吧一个或多个item附加在后面
+	* array.join(separator)
+		* 把数组array中的元素用一个分隔符（默认是，）连接成一个字符串
+			* 先把每个元素构造成一个字符串，然后用分隔符链接
+	* array.pop()
+		* 移除array中最后一个元素并返回
+	* array.push(item...)
+		* 把一个或者多个item附加到数组的尾部，并返回array的新长度
+			* 如果item是一个数组，会把它当作单个元素添加到数组中
+	* array.reverse()
+		* 反转array里 元素的顺序
+	* array.shift()
+		* 移除数组的第一个元素并返回该元素
+			* 如果数组是空的，返回undefined
+			* 比pop慢
+	* array.slice(start,end)
+		* 对array中的一段做浅复制并返回
+		* end参数可选，默认为array.length，从1计数
+			* start从0计数
+		* 如果参数中任何一个是负数，array.length会和他相加，试图变成非负数
+		* start大于array.length，得到空数组
+	* array.sort(comparefn)
+		* 字符串排序
+		* 默认排序函数把元素都视为字符串
+	* array.splice(start,deleteCount,item...)
+		* 从array中移除一个或者多个元素，并用item替换，返回包含被移除元素的数组
+	* array.unshift(item)
+		* 把item插入到数组的开始部分，并返回array新的length
+* Function
+	* function.apply(thisArg,argArray)
+* Number
+	* number.toExponentia(fractionDigits)
+		* 把Number转化成科学计数法表示的字符串，fractionDigits表示小数点后面的位数
+	* number.toFixed(fractionDigits)
+		* 把number转化成十进制数形式的字符串
+			* fractionDigits表示小数点后数字的位数
+	* number.toPrecision(precision)
+		* number转换成十进制数字形式的字符串
+		* precision表示有效数字位数
+	* number.toString(radix)
+		* number转换成一个字符串
+		* radix表示基数，默认为10
+* Object
+	* object.hasOwnProperty(name)
+* RegExp
+* String
+	* string.chartAt(pos)
+		* 返回string中pos处的字符
+			* 如果pos不在范围内，返回空字符串
+			* js中只有字符串
+	* string.charCodeAt(pos)
+		* 和charAt(pos)一样，只是返回pos处字符对应的编码
+			* 不再范围内，返回NaN
+	* string.concat(string...)
+		* 不如+
+	* string.indexOf(searchString,position)
+		* 在string中查找另一个字符串searchString，并返回第一个匹配字符的位置，否则返回-1
+		* pos可以设定从string的某个位置开始寻找
+	* string.lastIndexOf(searchstring,position)
+		* 和indexOf（）相同，只不过从后向前找
+	* string.localeCompare(that)
+	* string.match(regexp)
+	* string.replace(searchValue,replaceValue)
+		* 字符串查找和替换
+		* searchValue是字符串，只会替换第一个匹配的地方；如果是带有g标识的正则，替换所有匹配
+		* replaceValue是字符串，$;是函数
+	* string.search(regexp)
+		* 和indexOf()类似，接收一个正则且忽略其g标识；找到返回首次出现位置，没找到返回-1
+	* string.slice(start,end)
+		* 和array.slice(start,end)类似
+	* string.split(separator,limit)
+		* 把string分割成片段创建一个数组并返回
+		* 可选参数limit显示被分割的片段的数量
+	* string.toLowerCase()
+		* string中所有字母转化成小写并返回转化后的string
+	* string.toUpperCase()
+		* 返回一个新的字符串，string中所有的字符转换成大写
+	* string.fromCharCode(char...)
