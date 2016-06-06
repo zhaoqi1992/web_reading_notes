@@ -106,7 +106,7 @@
 		* .table-hover鼠标悬停高亮的表格
 		* .table-condensed紧凑型表格
 		* .table-responsive响应式表格
-			* 应用于一个div来包含表格，使得表格具有响应式
+			* 应用于一个div来包含表格，使得表格具有响应式，div.table-responsive>table.table.table-bordered
 			* 其他的类都是直接用在``<table>``上
 			* 几种类可以组合使用，必须包含.table类
 		* 表格行的类``<tr>``
@@ -124,6 +124,7 @@
 			* 输入框和标签在同一行
 			*  ``<form>``添加类.form-horizontal
 				*  必须配合网格系统，用div.form-group包住input组
+					*  没有.form-horizontal 也相当于div.row
 				*  form-group相当于网格系统的row
 		* 内联表单 
 			*  ``<form>``添加类.form-inline
@@ -131,6 +132,7 @@
 				*  label会导致换行，input在label的下一行；如果你必须添加这样的一个label标签，并且不想让input换行，你需要将label标签也放在容器“form-group”中
 	* 表单控件
 		* ``<input>``添加.form-control
+			* 添加了.form-control，则width默认为100%
 		* select
 			* 添加.form-control
 			* 多行选择，multiple属性值设置为multiple
@@ -139,20 +141,24 @@
 			* col
 				* 如果textarea添加了.form-control无需设置col；.form-control设置宽度为100%或auto
 		* checkbox,radio
-			* div.checkbox>label>input[type='checkbox']{输入密码}
+			* div.checkbox>label>input[type='checkbox']{多选}
 			* div.radio>label>input[type='radio']{单选}
 			* 水平排列
 				* label添加类checkbox-inline
 				* label添加类raido-inline
 				* 不要用div.radio或者div.checkbox包住
 	* 表单控件大小
-		* input.input-sm比正常大小更小
-		* input.input-lg比正常大小更大
+		* input.input-sm比正常大小更小，高度
+		* input.input-lg比正常大小更大，高度
 			* 对表单大小的控制实现
 			* height
 				* line-hight
 				* padding
 				* font-size
+		*  div.form-group相当于div.row，通过div.col-md-5来对输入控件的宽度进行控制
+		*  对form.form-horizontal，通过在div.form-group上添加类，来控制大小
+			*  .form-group-lg
+			*  .form-group-sm
 	* 表单状态
 		* 必须给表单添加.form-control
 		* 焦点状态
@@ -160,26 +166,38 @@
 			*  改变outline属性
 		* 禁用状态
 			* 添加disabled属性
-				* 实现：cursor:not-allowed
+				* 实现：cursor:not-allowed，pointer-events: none
 				* field设置禁用，整个域都禁用
 					* 禁用的域中如果有legend标签且legend标签中有输入框，输入框不会被禁用
+					* 如果field中有a.btn，则这个a不受影响
+		* 只读状态
+			* input设置readonly属性
+			* 效果和禁用类似，只是不显示禁用的标记
 		* 验证状态
 			* 在div.form-group上添加类
 				* .has-error
 				* .has-worning
 				* .has-success
+			* 其中的.control-label,.form-control,.help-block都受影响
 		* 添加对应的图标
 			* 在div.form-group上同时添加类.has-feedback
 			* 在表单里每个div.form-group中添加一个``<span>``
 				* 成功：``<span class="glyphicon glyphicon-ok form-control-feedback"></span>``
 				* 警告：``<span class="glyphicon glyphicon-warning-sign form-control-feedback"></span>``
 				* 错误：``<span class="glyphicon glyphicon-remove form-control-feedback"></span>  ``
+			* 没有label的输入框，input输入框组需要手动定位
+				* 输入框最好都跟着一个label
 	* 表单提示信息
 		* .help-block
 			* 在div.form-group中加上``<span class="help-block">你输入的信息是正确的</span>``
 			* 提示信息会显示在输入控件的下方
 	* 按钮
 		* 必须有.btn
+			* input,a,button上都可以添加从而变成按钮
+			* 导航和导航条组件仅支持button
+			* a作为按钮使用，用于启动功能而不是跳转链接，添加role=‘button’属性
+			* 最佳实践：用button元素
+				* input.btn在Firefox上无法被设置line-height属性，从而造成样式不同意
 		* 基本按钮
 			* button.btn
 		* 默认按钮
@@ -214,29 +232,70 @@
 				* :active
 				* :focus
 				* 不同风格下的按钮都具有这些状态
-				* 对button通过:ative实现；对a元素通过添加类.active实现
+				* 对a元素通过添加类.active实现，也可以把.active用于button
+					* 按钮处于激活状态，表现为被按压下去
 			* 禁用状态
 				* 方法
 					* 标签中添加disabled属性 disabled='disabled'
-						* 禁止按钮的默认行为
+						* 不禁止按钮的默认行为
 					* 添加.disabled
-						* 不会禁止按钮的默认行为，比如说``<a>``依然会链接行为
+						* 禁止按钮的默认行为，比如说``<a>``依然会链接行为
+					* 实际应用中，在``<a>``上应用，.disabled禁止默认行为！！
 	* 图像和图标
 		* 图像分类
 			* .img-responsive 响应式图片
+				* 本质：width:100%;height:auto;display:block
+				* 让.img-responsive水平居中，用.center-block
+				* IE8-10中，响应式SVG图片显示尺寸不均匀
+					* 有问题的地方加上width:100%\9;
 			* .img-rounded    圆角图片
 			* .img-circle     圆形图片
 			* .img-thumbnail  略缩图片
 				* 用法：在``<img>``标签中添加对应类
 				* 图片大小
 					* 通过图片容器大小来控制图像大小，不要通过CSS直接修改img大小，这样就不响应了
-				*ie8一下没有圆角效果，bootstrap用CSS3做的圆角效果
+				* < ie8一下没有圆角效果，bootstrap用CSS3做的圆角效果
 	* 图标
 		* ``<span class="glyphicon glyphicon-search"></span>``
 			* 参考bootstrap的图标http://getbootstrap.com/components/#glyphicons
 			* 实现：用CSS3的@font-face配合字体实现icon效果，字体图标
 			* 可以使用第三方图标字体，Font Awesome(http://www.bootcss.com/p/font-awesome/)
 			* 实现：添加.glyphicon类实现默认样式，通过:before伪类的content属性调取对应icon编码
+	* 辅助类工具
+		* 情景文本颜色
+			* .text-muted
+			* .text-primary
+			* .text-success
+			* .text-info
+			* .text-warning
+			* .text-danger
+		* 关闭按钮
+			* button.close>span{&times;}
+		* 三角符号
+			* span.caret
+		* 快速浮动
+			* .pull-left
+			* .pull-right
+				* 实现：float:right !important
+		* 内容块居中
+			* .center-block类
+				* 实现：{display:block;margin-left:auto;margin-right:auto
+		* 清除浮动
+			* 为父元素添加.clearfix
+				* 实现:.clearfix(){&:before,&:after{content:" ";display:table;}&:after{clear:both;}}}
+		* 显示或隐藏内容
+			* .show
+				* display:block !important;
+			* .hidden或者.sr-only
+				* display:none !important;
+			* .invisible
+				* visibility:hidden;
+		* 屏幕阅读器
+			* .sr-only
+				* 对屏幕阅读器以外的设备隐藏内容
+			* .sr-only结合.sr-only-focusable
+				* 对屏幕阅读器以外的设备隐藏内容，在使用键盘tab键获取焦点时显示
+		* 图片替换
 * 网格布局
 	* 通过定义容器大小，一行平分为12份，调整外边距并结合媒体查询
 	* 可以用负外边距抵消内边距
@@ -255,6 +314,7 @@
 				* 利用1/12的margin-left，偏移多少，，就加多少margin-left
 				* 列断行显示
 					* 列和偏移列的总数如果超过12，就会断行显示
+				* 可能会把元素顶到下一行，类似推箱子
 		* 列排序
 			* 改变列的方向
 			* 改变左右浮动
@@ -263,6 +323,7 @@
 				* .col-md-push-x:向右
 				* .col-md-pull-x：向左
 					* x表示移动多少份
+				* 可能会产生重叠部分，类似推拉门
 		* 列嵌套
 			* 在一个人列中加入一个或多个行，这个行中可以继续添加列。
 			* 被嵌入的行的宽度100%为外部列的宽度
@@ -335,10 +396,10 @@
 		* 如果进行嵌套，里面的每个下拉菜单还是用div.btn-group包裹
 	* 等分按钮组（自适应分组）
 		* 自适应分组，整个按钮组是容器的100%，组中的按钮平分容器宽度
+		* 制作等分按钮组使用``<a>``来制作按钮，保证兼容性（不要用button）
 		* .btn-group上追加.btn-group-justified
 			* 原理
 				* 把btn-group-justified模拟成表格：display:table;把按钮模拟成表格单元：display:table-cell;
-		* 制作等分按钮组最好使用``<a>``来制作按钮，保证兼容性
 	* 按钮下拉菜单
 		* 把其中一个子按钮当成触发下拉菜单的按钮
 		* 在按钮的基础上增加下拉菜单相关的类`` <button class="btn btn-default dropdown-toggle" data-toggle="dropdown" type="button">按钮下拉菜单<span class="caret"></span></button>``
@@ -466,7 +527,7 @@
 		* div.container>div.row>div.col-md-x>a.thumbnail>img
 		* 添加描述信息
 			* div.container>div.row>div.col-md-x>(a.thumbnail>img+div.caption)
-				* div.caption中防止其他内容，如标题，文本，按钮等
+				* div.caption中放置其他内容，如标题，文本，按钮等
 * 警示框
 	* 默认警示框
 		* div.alert.alert-success{文本}
