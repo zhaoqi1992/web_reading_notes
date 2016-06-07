@@ -20,7 +20,7 @@
 	* body移除margin声明，默认背景为白色
 	* 为排版设置了基本的字体，行高，字号
 	* 设置全局链接颜色，：hover时，显示下划线
-* 排版
+## 排版
 	* bootstrap标题
 		* 重置了默认标题样式，使在任何浏览器下标题样式相同
 		* 依然使用``<h1>~<h6>``
@@ -169,7 +169,7 @@
 				* 实现：cursor:not-allowed，pointer-events: none
 				* field设置禁用，整个域都禁用
 					* 禁用的域中如果有legend标签且legend标签中有输入框，输入框不会被禁用
-					* 如果field中有a.btn，则这个a不受影响
+					* 如果fieldset中有a.btn，则这个a不受影响
 		* 只读状态
 			* input设置readonly属性
 			* 效果和禁用类似，只是不显示禁用的标记
@@ -191,56 +191,56 @@
 		* .help-block
 			* 在div.form-group中加上``<span class="help-block">你输入的信息是正确的</span>``
 			* 提示信息会显示在输入控件的下方
-	* 按钮
-		* 必须有.btn
-			* input,a,button上都可以添加从而变成按钮
-			* 导航和导航条组件仅支持button
-			* a作为按钮使用，用于启动功能而不是跳转链接，添加role=‘button’属性
-			* 最佳实践：用button元素
-				* input.btn在Firefox上无法被设置line-height属性，从而造成样式不同意
-		* 基本按钮
+* 按钮
+	* 必须有.btn
+		* input,a,button上都可以添加从而变成按钮
+		* 导航和导航条组件仅支持button
+		* a作为按钮使用，用于启动功能而不是跳转链接，添加role=‘button’属性
+		* 最佳实践：用button元素
+			* input.btn在Firefox上无法被设置line-height属性，从而造成样式不同意
+	* 基本按钮
 			* button.btn
-		* 默认按钮
+	* 默认按钮
 			* .btn的基础上增加.btn-default
 				* 改变按钮的颜色、边框颜色和文本颜色
-		* 多标签支持
+	* 多标签支持
 			* 任何标签添加了类.btn都可以变成按钮
 			* 为了保证兼容性，建议只用button和a标签来制作按钮
-		* 定制风格
-			* 在.btn的基础上添加指定的类名
-				* 边框颜色，按钮颜色，文字颜色不同
-			* 类别
-				* .btn-primary
-				* .btn-success
-				* .btn-info
-				* .btn-warning
-				* .btn-danger
-				* .btn-link
-		* 按钮大小
-			* .btn基础上增加类
-				* .btn-lg
-				* .btn-sm
-				* .btn-xs(超小)
-					* 实现：通过padding,font-size,line-height,border-radius控制按钮大小
-		* 块状按钮
-			* .btn的基础上增加.btn-block
-				* 实现：按钮充满这个父容器：width：100%
-				* 按钮不会有和人padding和margin（水平方向）
-		* 按钮状态
-			* 活动状态
-				* :hover
-				* :active
-				* :focus
-				* 不同风格下的按钮都具有这些状态
-				* 对a元素通过添加类.active实现，也可以把.active用于button
-					* 按钮处于激活状态，表现为被按压下去
-			* 禁用状态
-				* 方法
-					* 标签中添加disabled属性 disabled='disabled'
-						* 不禁止按钮的默认行为
-					* 添加.disabled
-						* 禁止按钮的默认行为，比如说``<a>``依然会链接行为
-					* 实际应用中，在``<a>``上应用，.disabled禁止默认行为！！
+	* 定制风格
+		* 在.btn的基础上添加指定的类名
+			* 边框颜色，按钮颜色，文字颜色不同
+		* 类别
+			* .btn-primary
+			* .btn-success
+			* .btn-info
+			* .btn-warning
+			* .btn-danger
+			* .btn-link
+	* 按钮大小
+		* .btn基础上增加类
+			* .btn-lg
+			* .btn-sm
+			* .btn-xs(超小)
+				* 实现：通过padding,font-size,line-height,border-radius控制按钮大小
+	* 块状按钮
+		* .btn的基础上增加.btn-block
+			* 实现：按钮充满这个父容器：width：100%
+			* 按钮不会有和人padding和margin（水平方向）
+	* 按钮状态
+		* 活动状态
+			* :hover
+			* :active
+			* :focus
+			* 不同风格下的按钮都具有这些状态
+			* 对a元素通过添加类.active实现，也可以把.active用于button
+				* 按钮处于激活状态，表现为被按压下去
+		* 禁用状态
+			* 方法
+				* 标签中添加disabled属性 disabled='disabled'
+					* 不禁止按钮的默认行为
+				* 添加.disabled
+					* 禁止按钮的默认行为，比如说``<a>``依然会链接行为
+				* 实际应用中，在``<a>``上应用，.disabled禁止默认行为！！
 	* 图像和图标
 		* 图像分类
 			* .img-responsive 响应式图片
@@ -269,6 +269,12 @@
 			* .text-info
 			* .text-warning
 			* .text-danger
+		* 背景颜色
+			* .bg-primary
+			* .bg-success
+			* .bg-info
+			* .bg-warning
+			* .bg-danger
 		* 关闭按钮
 			* button.close>span{&times;}
 		* 三角符号
@@ -296,47 +302,67 @@
 			* .sr-only结合.sr-only-focusable
 				* 对屏幕阅读器以外的设备隐藏内容，在使用键盘tab键获取焦点时显示
 		* 图片替换
-* 网格布局
-	* 通过定义容器大小，一行平分为12份，调整外边距并结合媒体查询
+	* 响应式工具
+		* 显示
+			* .visible-xs-*
+			* .visible-sm-*
+			* .visible-md-*
+			* .visible-lg-*
+				* 对应范围可见
+				* *可以是block,inline,inline-block，分别对应相关的display
+		* 隐藏
+			* .hidden-xs
+				* <768px隐藏
+			* .hidden-sm
+				* >768px 隐藏
+			* .hidden-md
+				* >992px隐藏
+			* .hidden-lg
+				* > 1200px隐藏
+	
+## 网格布局
+
+* 通过定义容器大小，一行平分为12份，调整外边距并结合媒体查询
 	* 可以用负外边距抵消内边距
-	* 工作原理
-		* 数据div.row，必须包含在div.container内
-		* div.row内添加列，列数之和不能超过总数12，比如div.col-md-4表示占据4份的一个列
-		* 具体内容放在列内，只有行可以是div.container的子元素
-	* 使用方法
-		* 列组合
-			* ``<div class="col-md-4">.col-md-4</div>``
-				* 通过浮动和宽度百分比实现
-		* 列偏移
-			* 把相邻的列分开点
-			* 列元素上添加类 col-md-offset-x
-				* x表示想要偏移的量，比如col-md-offset-4表示偏移4份
-				* 利用1/12的margin-left，偏移多少，，就加多少margin-left
-				* 列断行显示
-					* 列和偏移列的总数如果超过12，就会断行显示
-				* 可能会把元素顶到下一行，类似推箱子
-		* 列排序
-			* 改变列的方向
-			* 改变左右浮动
-				* 调整right和left
-			* 添加类名
-				* .col-md-push-x:向右
-				* .col-md-pull-x：向左
-					* x表示移动多少份
-				* 可能会产生重叠部分，类似推拉门
-		* 列嵌套
-			* 在一个人列中加入一个或多个行，这个行中可以继续添加列。
-			* 被嵌入的行的宽度100%为外部列的宽度
-			* 嵌套列也不要超过12个列		
+* 工作原理
+	* 数据div.row，必须包含在div.container内
+	* div.row内添加列，列数之和不能超过总数12，比如div.col-md-4表示占据4份的一个列
+	* 具体内容放在列内，只有行可以是div.container的子元素
+* 使用方法
+	* 列组合
+		* ``<div class="col-md-4">.col-md-4</div>``
+			* 通过浮动和宽度百分比实现
+	* 列偏移
+		* 把相邻的列分开点
+		* 列元素上添加类 col-md-offset-x
+			* x表示想要偏移的量，比如col-md-offset-4表示偏移4份
+			* 利用1/12的margin-left，偏移多少，，就加多少margin-left
+			* 列断行显示
+				* 列和偏移列的总数如果超过12，就会断行显示
+			* 可能会把元素顶到下一行，类似推箱子
+	* 列排序
+		* 改变列的方向
+		* 改变左右浮动
+			* 调整right和left
+		* 添加类名
+			* .col-md-push-x:向右
+			* .col-md-pull-x：向左
+				* x表示移动多少份
+			* 可能会产生重叠部分，类似推拉门
+	* 列嵌套
+		* 在一个人列中加入一个或多个行，这个行中可以继续添加列。
+		* 被嵌入的行的宽度100%为外部列的宽度
+		* 嵌套列也不要超过12个列		
 ## 菜单、按钮、导航
 * 下拉菜单
 	* 基本用法
 		* 必须加入jquery.js和bootstrap.js
 		* 用法
-			* 用一个div.dropdown包裹整个下拉菜单元素
+			* 用一个div.dropdown包裹整个下拉菜单元素，包括ul.drop-menu
 			* 用一个button.dropdown-toggle[data-toggle=dropdown]作为父菜单，data-toggle属性为bootstrap自定义属性，属性值必须和最外容器类名一致，就写成ata-toggle=‘dropdown’
 				* ``<span class='caret'></span>``在button内容后面加上，会显示下拉提示箭头
 			* 下拉菜单用一个ul列表，ul.dropdown-menu
+		* 用div.dropup表示为向上弹出菜单
 	* 原理
 		* 给.dropdown-menu默认样式中设置了display:none；默认状态下拉菜单隐藏
 		* 用户点击button.dropdown-toggle时，通过给div.dropdown添加或删除.open类来控制显示或隐藏
@@ -366,8 +392,10 @@
 			* 对应的li上添加该类
 * 按钮组
 	* 按钮组
+		* 最好加一个label
 		* 必须添加jquery.js和bootstrap.js
 		* 用div.btn-group容器把多个按钮包裹起来形成按钮组
+			* 给div.btn-group添加role=group
 			* 容器内的元素必须有.btn类（bootstrap的按钮标志，最好是``<a>``和``<button>``）
 		* 按钮组出了第一个和最后一个具有边上的圆角，其他按钮没有圆角。（一般bootstrap中的按钮都有圆角）
 			* 实现：
@@ -376,43 +404,68 @@
 				* 第一个保留左边的圆角：border-top-right-radius: 0;border-bottom-right-radius: 0;
 				* 最后一个保留右边的圆角：border-top-left-radius: 0;border-bottom-left-radius: 0;
 	* 按钮工具栏
+		* 必须加一个label
 		* 用一个div.btn-toolbar将多个div.btn-group包裹起来，形成工具栏
+			* 给div.btn-toolbar添加role=toolbar
 			* 实现方式
 				* 将被包含的div.btn-group左浮动，并组间保持5px的左外边距
 				* 在.btn-toolbar上清除浮动
 					* .btn-toolbar:after{clear:both}
-		* 按钮组大小
-			* 类似操作按钮大小，在div.btn-group上添加相应类
-			* .btn-group-lg
-			* .btn-group-sm
-			* .btn-group-xs
+		* 工具栏中的按钮组如果也有对应的label，则会堆积到最后（左浮动的原因）
+	* 按钮组大小
+		* 类似操作按钮大小，在div.btn-group上添加相应类
+		* .btn-group-lg
+		* .btn-group-sm
+		* .btn-group-xs
 	* 嵌套分组
 		* 结合下拉菜单和按钮组
 		* 使用
-			* 把div.dropdown容器换成div.btn-group,并且和普通按钮放在同一级，下拉菜单其他部分不变，button[data-toggle=dropdown](为了触发js中相关部分,所以不能变)
-			* 把下拉菜单当作一个按钮组作为外层按钮组的一个子按钮
+			* div.btn-group当做div.dropdown,并且和普通按钮放在同一级，下拉菜单其他部分不变，button[data-toggle=dropdown](为了触发js中相关部分,所以不能变)
+			* 下拉菜单的触发按钮当成按钮组的一个成员
 	* 垂直分组
 		* 把最外层.btn-group换成.btn-group-vertical
 		* 如果进行嵌套，里面的每个下拉菜单还是用div.btn-group包裹
-	* 等分按钮组（自适应分组）
+			* 实现
+				* display:inline-block;position:relative;vertical-align:middle
+	* 等分按钮组（自适应分组,两端对齐）
 		* 自适应分组，整个按钮组是容器的100%，组中的按钮平分容器宽度
 		* 制作等分按钮组使用``<a>``来制作按钮，保证兼容性（不要用button）
+			* 如果非要用button，则把每个button放入一个div.btn-group
+				* 大部分浏览器不能把对齐的CSS应用到button元素上
 		* .btn-group上追加.btn-group-justified
 			* 原理
 				* 把btn-group-justified模拟成表格：display:table;把按钮模拟成表格单元：display:table-cell;
-	* 按钮下拉菜单
-		* 把其中一个子按钮当成触发下拉菜单的按钮
+* 按钮下拉菜单
+	* 把其中一个子按钮当成触发下拉菜单的按钮
 		* 在按钮的基础上增加下拉菜单相关的类`` <button class="btn btn-default dropdown-toggle" data-toggle="dropdown" type="button">按钮下拉菜单<span class="caret"></span></button>``
-	* 按钮向下向上三角形
-		* ``<span class="caret"></span>``下拉标志的三角形；该三角形完全由CSS实现
-		* 三角形朝上：.btn-group上追加.dropup
-			* 原理：改变border-bottom
-	* 向上弹起的下拉菜单
-		* 追加类.dropup
-			* 如果是普通下拉菜单，在.dropdown上追加
-			* 如果是按钮组结合下拉菜单，在.btn-group上追加
-				* ``<span class="caret"></span>``自动变成向上的三角
+	* 分裂式按钮下拉菜单
+		* 一个div.btn-group包含两个按钮，第一个button包含按钮上的文字，第二个button包含小三角，且作为触发下拉菜单的按钮
+	* 按钮大小
+		* .btn-lg
+		* .btn-md
+		* .btn.sm
+		* .btn-xs
+	* 向上弹出下拉菜单
+		* 给包裹的div.btn-group添加.dropup
+* 输入框组
+	* 给input元素进行扩展
+		* 只适用于input
+		* input.form-control
+	* 用div.input-group包裹
+	* 可以给input的前、后添加额外元素span.input-group-addon
+		* 一个输入框的一侧只能有一个额外元素
+		* 一个输入框组只能有一个input
+		* span.input-group-addon里面可以添加checkbox,radio
+		* 也可以添加button，此时span替换为div.input-group-btn
+			* button可以作为触发按钮从而添加下拉菜单
+			* button可以表现为分裂式按钮
+	* 输入框组大小
+		* .input-group-lg
+		* .input-group-md
+		* .input-group-sm
+		* .input-group-xs
 * 导航
+	* 如果是用导航组件构建导航，需要用nav[role=navigation]元素或者div[role=navigation]包含整个导航
 	* 基础样式
 		* ul.nav.nav-tabs>li>a{导航文字}
 			* 单独的.nav没有导航效果，必须再配合.nav-tabs或者.nav-pills
@@ -437,23 +490,33 @@
 	* 自适应导航
 		* 在.nav.nav-tabs或.nav.nav-pills的基础上增加.nav-justified
 			* 效果如同.btn-group-justified
-			* 存在媒体查询，视口宽度大于768px在一行显示
+			* 存在媒体查询，视口宽度大于768px在一行显示，<798px则堆叠在一起
 			* 实现原理
 				* ul设置为width:100%;li设置为display:table-cell
 	* 导航加下拉菜单
 		* 导航结合下拉菜单
 		* li当作容器，添加类.dropdown;在容器内添加下拉菜单的内容
 			* 可以在嵌套的下拉菜单中添加li.nav-divider或者li.divider充当分隔线
-	* 面包屑导航
+	* 禁用的连接
+		* li中添加.disabled
+			* 只改变外观，点击依然有效
+	* 添加下拉菜单
+		* 把li中的a当做下拉菜单的触发器
+	* 面包屑导航（路径导航）
 		* 告诉用户现在所处页面的位置
 		* 使用：ol.breadcrumb>li>a
 
 ##导航条
+* 特点
+	* 响应式
+	* 移动设备上可以折叠，可开可关，@grid-float-breakpoint=768px
+	* 视口足够大则变为水平展开模式，导航条内元素太多可能会造成内容折行
+* 必须用nav[role=navigation]包含整个导航
 * 导航条基础
 	* 和导航的区别
 		* 导航条有背景色，可以是纯链接，可以是表单，还可以表单导航相结合
 * 基础导航条
-	* div.navbar.nabar-default>ul.nav.navbar-nav
+	* div.navbar.nabar-default>ul.nav.navbar-nav>li>a{导航内容}
 		* 导航的列表基础上添加.navbar-nav,并添加新的容器div.navbar.navbar-default
 		* .navbar在导航.nav基础上，调整菜单浮动、设置左右padding和圆角效果，.navbar-default设置颜色
 * 为导航条添加标题、二级菜单及状态
@@ -463,20 +526,32 @@
 * 带表单的导航条
 	* div.navbar.navbar-default>ul.nav.navbar-nav+form.navbar-form
 		* 在导航条中添加一个form.navbar-form
+			* 此时form会占据一整行，后面的元素会被挤到下一行
+				* 使用navbar-left,或者navbar-right使之浮动，后面的元素可以上来
+			* 使表单可以垂直对齐，视口<768px时可以折叠
 		* form追加样式.navbar-left,.navbar-right表示左对齐和右对齐
-* 导航条中的按钮、文本和链接（没什么用）
+			* 添加浮动float
+* 导航条中的按钮、文本和链接（最好别用）
 	* 要和.navbar-brand、.navbar-nav配合使用，且数量最多两个
 	* .navbar-btn
+		* 可能会另起一行，还是别用
+		* 不在form中的按钮，在导航条中垂直居中
+			* 不要给a元素使用
 	* .navbar-text
+		* 文本包含在其中，得到正确的样式
 	* .navbar-link
+		* 让a元素有正确的样式
 * 固定导航条
 	* 在导航条最外部容器div.navbar上追加以下类
 	* .navbar-fixed-top
 	* .navbar-fixed-bottom
 		* 实现：position:fixed；top或者bottom为0
+		* nav包含一个div.container,可以让导航条居中，并在两侧添加padding
 		* 固定导航条遮挡主内容
 			* 固定导航条默认高度50px，body设置padding-top:70px;或padding-bottom:70px;
 			* 把导航条放到内容前面（html中）
+	* .navbar-static-top
+		* 会随着滚动而消失
 * 响应式导航条
 	* 窄屏时需要折叠的内容必须包含在div.collapse.navbar-collapse内，并给这个div添加ID或类名
 	* 保证窄屏时显示的图标样式（固定写法）
