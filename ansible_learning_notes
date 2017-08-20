@@ -1,5 +1,10 @@
 Ansible
-是一款运维自动化工具
+主要参考：http://www.ansible.com.cn/
+         《Ansible权威指南》
+         《奔跑吧Ansible》
+ 后续会继续整理编辑，争取输出一个简短的Ansible使用指南
+         
+Ansible是一款运维自动化工具
 应用场景：
    软件部署自动化、配置自动化、管理自动化等
 Ansible的优势：
@@ -10,3 +15,48 @@ Ansible的优势：
       第三方平台支持：AWS，Openstack
       虚拟化：VMware，Docker，openstack
       系统应用层：Apache，Zabbix
+   去中心化
+   客户端无需任何配置
+   
+   
+Ansible的使用方式：
+   过程中角色：使用者，工具集，作用对象
+   使用者：
+      （1）提供API接口，ansible以api形式调用，如Python
+      （2）Ad-Hoc命令集
+      （3）asible-playbooks（better）
+    ansible工具集：
+      Inventory，modules，plugins，API
+      
+ Ansible SSH工作机制
+ Ansible的主要优势在于其通信方式采用SSH，且linux主机系统必装SSH软件，所以无需在远程主机端安装任何额外进程
+ 优势：
+   无客户端，只需SSH，Python
+   基于SSH通信，windows给予PowerShell
+   支持公私钥认证方式
+   支持windows（仅作为客户端）服务端必须采用Linux
+   
+主要应用场景：
+   应用部署
+   配置管理
+   任务流程安排
+   
+Ansible基础元素
+   目录结构：
+      配置文件（main）
+      执行文件（main）
+      Lib库依赖
+      Help文档
+      Man文档
+ 配置文件：ansible.cfg
+ Ansible命令以及使用场景
+      ansible
+      ansible-galaxy:类似与Github
+      ansible-pull：应用与大批量机器的场景
+      ansible-doc：文档说明
+      ansible-playbook
+      ansible-vault：配置文件加密
+      
+  Inventory配置：管理主机信息配置文件
+  Ansible AD-Hoc命令集
+  playbook基本语法、扩展、进阶
