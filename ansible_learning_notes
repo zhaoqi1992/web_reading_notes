@@ -1,0 +1,12 @@
+Ansible
+是一款运维自动化工具
+应用场景：
+   软件部署自动化、配置自动化、管理自动化等
+Ansible的优势：
+  完全基于python开发
+  内置模块丰富：
+    覆盖面：
+      系统层：linux，Windows
+      第三方平台支持：AWS，Openstack
+      虚拟化：VMware，Docker，openstack
+      系统应用层：Apache，Zabbix
